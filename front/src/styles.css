@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --bs-body-bg: #E8E8E8; /* Fondo de la página */
+    --bs-body-color: #564256; /* Color principal del texto */
+    --bs-primary: #FC814A; /* Color de botones y enlaces */
+    --bs-secondary: #96939B; /* Color para elementos secundarios */
+    --bs-dark: #564256; /* Color oscuro para headers o footers */
+    --bs-light: #BFBFBF; /* Color gris claro */
+}
