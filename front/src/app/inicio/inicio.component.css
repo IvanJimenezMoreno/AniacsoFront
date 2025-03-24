@@ -1,0 +1,13 @@
+
+
+nav {
+    margin-bottom: 50px;
+}
+
+.carousel img {
+    max-height: 70vh; /* Máximo 70% del alto de la pantalla */
+}
+
+#carouselExampleCaptions{
+    margin: 0 auto;
+}

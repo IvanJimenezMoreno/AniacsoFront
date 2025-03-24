@@ -6,3 +6,19 @@
     --bs-dark: #564256; /* Color oscuro para headers o footers */
     --bs-light: #BFBFBF; /* Color gris claro */
 }
+
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+
+$primary: #FC814A;
+$secondary :   #564256;
+$terciary: #BFBFBF;
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "terciary": $terciary,
+);
+
+@import "bootstrap/scss/bootstrap";
