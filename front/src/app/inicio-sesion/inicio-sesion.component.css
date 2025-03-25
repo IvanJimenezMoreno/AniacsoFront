@@ -1,0 +1,51 @@
+#intro {
+    background-image: url("/images/losPalacios.webp");
+    height: 90vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    
+  }
+  
+
+  
+ 
+
+  /* Height for devices larger than 576px */
+  @media (min-width: 992px) {
+    #intro {
+      margin-top: -58.59px;
+    }
+  }
+
+  .navbar .nav-link {
+    color: #fff !important;
+  }
+
+  .img-fluid{
+    height: 600px;
+    width: auto;
+    border-radius: 10px;
+  }
+
+  @media screen and (max-width: 768px) {
+      html, body {
+      overflow-x: none;
+      }
+      #intro {
+      background-image: url("/images/losPalacios.webp");
+      height: 50vh;
+      background-repeat: no-repeat;
+      
+      
+      }
+      #carouselExampleCaptions{
+        display: none;
+      }
+      .img-fluid{
+        height: 400px;
+        width: auto;
+        border-radius: 10px;
+        margin: 0 auto;
+      }
+  }
