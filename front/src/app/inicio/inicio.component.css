@@ -1,17 +1,18 @@
+#intro {
+    background-image: url("/images/woojak.jpg");
+    height: 100vh;
+   
+    
+  }
 
+  /* Height for devices larger than 576px */
+  @media (min-width: 992px) {
+    #intro {
+      margin-top: -58.59px;
+    }
+  }
 
-nav {
-    margin-bottom: 50px;
-}
+  .navbar .nav-link {
+    color: #fff !important;
+  }
 
-.carousel img {
-    max-height: 70vh; /* Máximo 70% del alto de la pantalla */
-}
-
-#carouselExampleCaptions{
-    margin: 0 auto;
-}
-
-.titulo{
-    color: #e8e8e8;
-}

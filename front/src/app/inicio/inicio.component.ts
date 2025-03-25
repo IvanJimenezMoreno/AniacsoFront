@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-inicio',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './inicio.component.css'
 })
 export class InicioComponent {
-
+  
 }

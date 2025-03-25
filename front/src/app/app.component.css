@@ -5,3 +5,8 @@ ul{
 footer{
     margin-top: 50px;
 }
+
+body {
+    background-color: #212121 !important;
+    min-height: 100vh;
+  }
