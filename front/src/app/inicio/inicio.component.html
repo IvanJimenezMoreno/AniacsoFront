@@ -377,22 +377,25 @@
             <div class="form-outline mb-4" data-mdb-input-init>
               <input
                 type="password"
-                id="contraseña"
+                id="password"
                 class="form-control"
                 placeholder="Recomendado: Nº de tarjeta bancaria + Pin + Fecha(ej:11/32) + CVC"
-                formControlName="contraseña"
+                formControlName="password"
               />
-              <label class="form-label" for="contraseña">Contraseña</label>
+              <label class="form-label" for="password"
+                >Contraseña (minimo 8 carácteres si no no te deja darle al
+                botón)</label
+              >
             </div>
             <div class="form-outline mb-4" data-mdb-input-init>
               <input
                 type="password"
-                id="contraseña_confirmation"
+                id="password_confirmation"
                 class="form-control"
                 placeholder="Repitela va"
-                formControlName="contraseña_confirmation"
+                formControlName="password_confirmation"
               />
-              <label class="form-label" for="contraseña_confirmation"
+              <label class="form-label" for="password_confirmation"
                 >Repetir contraseña</label
               >
             </div>
@@ -420,14 +423,14 @@
               Resgistrarse
             </button>
 
-            <div *ngIf="mensajeError" style="color: red">
-              {{ mensajeError }}
+            <div style="color: red" *ngIf="passwordErrors.length > 0">
+              <p *ngFor="let error of passwordErrors">{{ error }}</p>
             </div>
 
-            <div
-              *ngIf="mensajeExito && !mensajeError && !errorValidacion"
-              style="color: greenyellow"
-            >
+            <div style="color: red" *ngIf="mensajeError">
+              {{ mensajeError }}
+            </div>
+            <div style="color: greenyellow" *ngIf="mensajeExito">
               {{ mensajeExito }}
             </div>
 
