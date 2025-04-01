@@ -110,107 +110,97 @@
 <!-- Navbar -->
 
 <div class="container-fluid p-4">
-  
   <div class="row">
-      <div class="col-md-9 text-white p-3">
-        <iframe src="https://calendar.google.com/calendar/embed?src=62f78d074a87452b6797c52d7503c17fa374d86b48b39d3fb62703d587e85593%40group.calendar.google.com&ctz=Europe%2FMadrid" style="border: 0" width="100%" height="700" frameborder="0" scrolling="no" class="inframe"></iframe>
-      </div>
-      <div class="col-md-3  text-white p-3">
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col">Nº</th>
-              <th scope="col">Nombre</th>
-              <th scope="col">Apodo</th>
-              <th scope="col">Rol</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Ivan</td>
-              <td>Otto</td>
-              <td>mdo</td>
-              
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Manuel</td>
-              <td>Thornton</td>
-              <td>fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Cuesta</td>
-              <td>twitter</td>
-              <td>........</td>
-            </tr>
-            <tr>
-              <th scope="row">4</th>
-              <td>Jorge</td>
-              <td>........</td>
-              <td>........</td>
-            </tr>
-            <tr>
-              <th scope="row">5</th>
-              <td >Larry the Bird</td>
-              <td>twitter</td>
-              <td>........</td>
-            </tr>
-            <tr>
-              <th scope="row">6</th>
-              <td >Larry the Bird</td>
-              <td>twitter</td>
-              <td>........</td>
-            </tr>
-            <tr>
-              <th scope="row">7</th>
-              <td >Larry the Bird</td>
-              <td>twitter</td>
-              <td>........</td>
-            </tr>
-            <tr>
-              <th scope="row">8</th>
-              <td >Larry the Bird</td>
-              <td>twitter</td>
-              <td>........</td>
-            </tr>
-            <tr>
-              <th scope="row">9</th>
-              <td >Larry the Bird</td>
-              <td>twitter</td>
-              <td>........</td>
-            </tr>
-
-          </tbody>
-        </table>
-
-      </div>
+    <div class="col-md-9 text-white p-3">
+      <iframe
+        src="https://calendar.google.com/calendar/embed?src=62f78d074a87452b6797c52d7503c17fa374d86b48b39d3fb62703d587e85593%40group.calendar.google.com&ctz=Europe%2FMadrid"
+        style="border: 0"
+        width="100%"
+        height="700"
+        frameborder="0"
+        scrolling="no"
+        class="inframe"
+      ></iframe>
+    </div>
+    <div class="col-md-3 text-white p-3">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Nº</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apodo</th>
+            <th scope="col">Rol</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let usuario of usuarios; let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ usuario.nombre }}</td>
+            <td>{{ usuario.apodo }}</td>
+            <td>{{ usuario.rol }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
-  
   <div class="row">
-      <div class="col-9 text-white d-flex align-items-center justify-content-center p-0">
-        <div class="container p-0">
-          <h2 class="mb-3">Deja huella:</h2>
-  
-          <!-- Formulario para agregar comentarios -->
+    <div
+      class="col-9 text-white d-flex align-items-center justify-content-center p-0"
+    >
+      <div class="container mt-4">
+        <div class="row">
+          <div class="col-6 text-white text-center">
+            <h3>¿Que?</h3>
+            <img class="cuesta img-fluid" src="/images/cuesta_frente.jpg" />
+          </div>
+          <div class="col-6">
+            <h3>Historia</h3>
+            <div>
+              <p>
+                Palabras textuales de Cuesta: "Llevava dos dias sin dermir, y no
+                se me ocurrió otra cosa que ir a sevilla con la jermu a comerme
+                un kebab. No debí, no debí coger ese autobús."
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="d-block mt-4">Deja tu huella</h2>
+
+        <!-- Formulario para crear un nuevo comentario -->
+        <form [formGroup]="comentarioForm" (ngSubmit)="crearComentario()">
           <div class="mb-3">
-              <textarea id="commentInput" class="form-control" rows="3" placeholder="Escribe tu comentario..."></textarea>
+            <label for="contenido" class="form-label">Nuevo Comentario:</label>
+            <textarea
+              id="contenido"
+              formControlName="contenido"
+              class="form-control"
+              rows="3"
+            ></textarea>
           </div>
-          <button id="addCommentBtn" class="btn btn-primary">Comentar</button>
-  
-          <!-- Lista de comentarios -->
-          <div id="commentsList" class="mt-4">
-              <h4>Comentarios:</h4>
-              <ul class="list-group"></ul>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="comentarioForm.invalid"
+          >
+            Enviar
+          </button>
+        </form>
+
+        <!-- Lista de comentarios -->
+        <div class="mt-4">
+          <div *ngFor="let comentario of comentarios" class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">{{ comentario.apodo }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">
+                {{ comentario.created_at | date : "dd/MM/yyy HH:mm" }}
+              </h6>
+              <p class="card-text">{{ comentario.contenido }}</p>
+            </div>
           </div>
+        </div>
       </div>
-      </div>
-      <div class="col-3 text-white text-center">
-        <h3>¿Que?</h3>
-        <img class="cuesta" src="/images/cuesta_frente.jpg">
- </div>
+    </div>
   </div>
-  
 </div>
