@@ -6,3 +6,19 @@
   .btn {
     padding: .55rem 1.5rem .45rem;
   }
+
+
+.table{
+  border-radius: 8px;
+}
+
+.inframe{
+  border-radius: 8px;
+
+}
+
+.cuesta{
+  width: 400px;
+  height: 400px;
+  border-radius: 8px;
+}
