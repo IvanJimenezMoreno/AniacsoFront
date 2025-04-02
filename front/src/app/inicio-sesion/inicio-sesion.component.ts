@@ -20,6 +20,8 @@ import { Router } from '@angular/router';
 export class InicioSesionComponent {
 
   formulario:FormGroup;
+  mensajeError:any;
+
 
   constructor(private formBuilder: FormBuilder, 
     private inicioSesionService: InicioSesionService, 
@@ -43,7 +45,13 @@ export class InicioSesionComponent {
 
          
          this.router.navigate(['/home'])
-      })
+      },
+      error=>{
+        
+        this.mensajeError = error.error.mensaje;
+        
+      }      
+      )
     }
   }
 
